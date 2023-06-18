@@ -1,1 +1,26 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess the Hidden Character</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Guess the Hidden Character</h1>
+  <p>Enter your guess:</p>
+  <input type="text" id="guessInput" onkeypress="handleKeyPress(event)">
+  <button onclick="checkGuess()">Submit</button>
+  <p id="result"></p>
+  <p id="hiddenInfo"></p>
+  <p id="similarityScore"></p>
+  <p id="semanticScore"></p>
+  <p id="readingScore"></p>
+
+      <div class="list-container">
+        <div id="list1" class="list"></div>
+        <div id="list2" class="list"></div>
+        <div id="list3" class="list"></div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
