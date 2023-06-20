@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guess the Hidden Character</title>
+  <title>Guess the Kanji</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
   <h1>Guess the Hidden Character</h1>
@@ -11,9 +14,11 @@
   <button onclick="checkGuess()">Submit</button>
   <p id="result"></p>
   <p id="hiddenInfo"></p>
+  <p id="guessHistory"></p>
   <p id="similarityScore"></p>
   <p id="semanticScore"></p>
   <p id="readingScore"></p>
+  <canvas id="kanjiChart"></canvas>
 
       <div class="list-container">
         <div id="list1" class="list"></div>
