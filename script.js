@@ -36,16 +36,31 @@ var chart = new Chart(ctx, {
     ]
   },
   options: {
+    layout: {
+      padding: 50,
+
+    },
+    plugins: {
+        legend: {
+            labels: {
+              usePointStyle: true,
+              pointStyle: 'line'
+            }
+        }
+    },
     responsive: true,
     scales: {
       x: {
         display: true,
+        offset: true,
         title: {
           display: true,
           text: "Kanji"
         }
       },
       y: {
+        max:255,
+        min:0,
         display: true,
         title: {
           display: true,
@@ -55,6 +70,7 @@ var chart = new Chart(ctx, {
     }
   }
 });
+
 
 fetch('https://kanjisagashi.jitakuapp.com/randomVisual.bin')
   .then(response => response.arrayBuffer())
