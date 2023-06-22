@@ -122,13 +122,13 @@ function checkGuess() {
       document.getElementById("result").innerHTML = "Success! You found the character.";
       // document.getElementById("hiddenInfo").innerHTML = "Unicode: " + hiddenCharacter.unicode + "<br>Size: " + byteArray[0] ;
     } else {
-      document.getElementById("result").innerHTML = "Fail";
-      document.getElementById("hiddenInfo").innerHTML = "";
+      // document.getElementById("result").innerHTML = "Fail";
+      // document.getElementById("hiddenInfo").innerHTML = "";
       var index = kanjiArray.indexOf(guess)
       if (index != -1) {
-      	document.getElementById("similarityScore").innerHTML = "Similarity score " + visualScores[index];
-        document.getElementById("semanticScore").innerHTML = "Semantic score " + semanticScores[index];
-        document.getElementById("readingScore").innerHTML = "Reading score " + readingScores[index];
+      	// document.getElementById("similarityScore").innerHTML = "Similarity score " + visualScores[index];
+        // document.getElementById("semanticScore").innerHTML = "Semantic score " + semanticScores[index];
+        // document.getElementById("readingScore").innerHTML = "Reading score " + readingScores[index];
         addKanji(guess, visualScores[index], semanticScores[index], readingScores[index])
         createListElement("list1", "score1");
         createListElement("list2", "score2");
@@ -211,8 +211,16 @@ function createListElement(listId, scoreType) {
 
     // Create list items for each kanji
     sortedList.forEach(function(kanji) {
-        var listItem = document.createElement("li");
-        listItem.textContent = kanji.kanji + " - " + kanji[scoreType];
+        var listItem = document.createElement("tr");
+        var kanjiElement = document.createElement("td");
+        var scoreElement = document.createElement("td");
+        kanjiElement.textContent = kanji.kanji
+        scoreElement.textContent = kanji[scoreType]
+        listItem.appendChild(kanjiElement)
+        listItem.appendChild(scoreElement)
+        if (kanji.kanji === previousGuess.slice(-1)[0].kanji) {
+          listItem.setAttribute("class", "lastItem")
+        }
         listElement.appendChild(listItem);
     });
 }
